@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {PostsPage} from './Pages/Posts';
+import {PostPage} from './Pages/Post';
+import {NoMatchPage} from './Pages/NoMatchPage';
+
+const HELLO = 'Hello from';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    return (
+        <Router>
+            <Switch>
+                <Route
+                    path="/posts"
+                    render={(props) => <PostsPage hello={HELLO} {...props}/>}
+                />
+                <Route
+                    path="/post/:id"
+                    render={(props) => <PostPage hello={HELLO} {...props}/>}
+                />
+                <NoMatchPage
+                    hello={HELLO}
+                />
+            </Switch>
+        </Router>
+    );
 }
 
 export default App;
