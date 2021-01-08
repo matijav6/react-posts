@@ -35,33 +35,15 @@ export const Text = styled.p`
   color: #6c757d;
 `;
 
-export const ViewComments = styled.button`
-  cursor: pointer;
-  margin-top: auto;
+export const TotalComments = styled.p`
+  color: #565656;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-top: 1px solid gray;
   width: 100%;
-  color: #007cfb;
-  background-color: transparent;
-  display: block;
-  font-weight: bold;
-  text-align: center;
-  vertical-align: middle;
-  user-select: none;
-  border: 1px solid transparent;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  border-radius: 0.25rem;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-  border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-
-  &:hover {
-    text-decoration: underline;
-  }
-
-  &:focus, &:active {
-    border: transparent;
-    outline: transparent;
-  }
+  margin: 0;
+  padding: 0 10px;
 `;
 
 export const ViewPost = styled.button`
@@ -96,4 +78,8 @@ export const ViewPost = styled.button`
     border: transparent;
     outline: transparent;
   }
+`;
+
+export const User = styled.p`
+  color: #565656;
 `;

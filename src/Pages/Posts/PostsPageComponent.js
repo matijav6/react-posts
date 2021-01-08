@@ -23,18 +23,21 @@ export const PostsPageComponent = ({postsData, handleFilter, isLoading}) => {
                                 <Post classes="mr">
                                     <Post.Body>
                                         <Post.Title>{post.title}</Post.Title>
+                                        <Post.User>{post.user.username}</Post.User>
                                         <Post.Text>{post.body}</Post.Text>
                                         <Post.ViewPostButton
                                             onClick={() => {
                                                 history.push({
                                                     pathname: '/post/' + post.id,
-                                                    state: {post: post}
+                                                    state: {post: post},
                                                 });
                                             }}
                                         >
                                             View post
                                         </Post.ViewPostButton>
-                                        <Post.ViewCommentsButton>Show comments</Post.ViewCommentsButton>
+                                        <Post.TotalComments>
+                                            {post.comments.length} comment(s)
+                                        </Post.TotalComments>
                                     </Post.Body>
                                 </Post>
                             </div>

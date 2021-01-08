@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Container, Body, Title, Text, ViewComments, ViewPost } from './PostStyle';
+import { Container, Body, Title, Text, TotalComments, ViewPost, User } from './PostStyle';
 
 export const Post = ({classes, children, ...restProps}) => {
     return (
@@ -35,15 +35,19 @@ Post.Text = function CardText({ classes, children, ...restProps }) {
     );
 };
 
-Post.ViewCommentsButton = function CardButton({ classes, children, ...restProps }) {
+Post.User = function CardUser({ classes, children, ...restProps }) {
     return (
-        <ViewComments
-            type="button"
-            className={classNames('card__viewComments', classes)}
-            {...restProps}
-        >
+        <User className={classNames('card__user', classes)} {...restProps}>
             {children}
-        </ViewComments>
+        </User>
+    );
+};
+
+Post.TotalComments = function CardTotalCount({ classes, children, ...restProps }) {
+    return (
+        <TotalComments className={classNames('card__totalComments', classes)}{...restProps}>
+            {children}
+        </TotalComments>
     );
 };
 

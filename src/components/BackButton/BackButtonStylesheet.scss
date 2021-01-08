@@ -3,7 +3,7 @@ $size: 65;
 .back-button {
   height: $size + px;
   width: $size + px;
-  position: absolute;
+  position: fixed;
   border-radius: $size + px;
   right: 15px;
   bottom: 15px;
