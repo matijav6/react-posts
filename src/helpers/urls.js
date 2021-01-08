@@ -1,6 +1,6 @@
 const serverUrl = 'https://jsonplaceholder.typicode.com';
 const getPosts = '/posts';
-const getPostComments = '/post/';
+const getPostComments = '/comments';
 
 export {
     serverUrl,

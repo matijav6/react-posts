@@ -1,0 +1,24 @@
+$size: 65;
+
+.back-button {
+  height: $size + px;
+  width: $size + px;
+  position: absolute;
+  border-radius: $size + px;
+  right: 15px;
+  bottom: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-button > h5 {
+  margin: 0;
+  padding: 0;
+}
+
+.back-button:hover {
+  background-color: #8dc5ff;
+  transition: background-color .5s ease-out;
+}

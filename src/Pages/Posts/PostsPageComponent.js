@@ -1,27 +1,69 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Spinner} from 'react-bootstrap';
+import {Post} from '../../components/Post/Post';
+import {CustomSpinner} from '../../components/Spinner/Spinner';
+import {useHistory} from 'react-router-dom';
 
-export const PostsPageComponent = ({postsData, isLoading}) => {
+export const PostsPageComponent = ({postsData, handleFilter, isLoading}) => {
+    const history = useHistory();
+
     return (
         <>
-            {
-                isLoading &&
-                <Spinner animation="border"/>
-            }
-            <h1>Posts</h1>
+            <CustomSpinner isLoading={isLoading}/>
+            <nav className="navbar navbar-dark bg-primary d-flex justify-content-center min-height-50">
+                <form className="form-inline w-75">
+                    <input type="text" placeholder="Search" className="form-control mr-sm-2 w-100" onChange={event => handleFilter(event.target.value)}/>
+                </form>
+            </nav>
+            <div className={'container-fluid p-3'}>
+                <div className={'row justify-content-md-center'}>
+                    {
+                        postsData.filtered.map(post => (
+                            <div className={'col-sm-12 col-md-6 col-xl-3 mb-4 d-flex justify-content-center'} key={post.id}>
+                                <Post classes="mr">
+                                    <Post.Body>
+                                        <Post.Title>{post.title}</Post.Title>
+                                        <Post.Text>{post.body}</Post.Text>
+                                        <Post.ViewPostButton
+                                            onClick={() => {
+                                                history.push({
+                                                    pathname: '/post/' + post.id,
+                                                    state: {post: post}
+                                                });
+                                            }}
+                                        >
+                                            View post
+                                        </Post.ViewPostButton>
+                                        <Post.ViewCommentsButton>Show comments</Post.ViewCommentsButton>
+                                    </Post.Body>
+                                </Post>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
         </>
     );
 };
 
 PostsPageComponent.propTypes = {
-    postsData: PropTypes.arrayOf(
-        PropTypes.shape({
-            body: PropTypes.string.isRequired,
-            title: PropTypes.string.isRequired,
-            id: PropTypes.number.isRequired,
-            userId: PropTypes.number.isRequired,
-        }),
-    ).isRequired,
+    postsData: PropTypes.shape({
+        filtered: PropTypes.arrayOf(
+            PropTypes.shape({
+                body: PropTypes.string.isRequired,
+                title: PropTypes.string.isRequired,
+                id: PropTypes.number.isRequired,
+                userId: PropTypes.number.isRequired,
+            }),
+        ).isRequired,
+        allPosts: PropTypes.arrayOf(
+            PropTypes.shape({
+                body: PropTypes.string.isRequired,
+                title: PropTypes.string.isRequired,
+                id: PropTypes.number.isRequired,
+                userId: PropTypes.number.isRequired,
+            }),
+        ).isRequired,
+    }),
     isLoading: PropTypes.bool.isRequired,
 };

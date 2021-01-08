@@ -1,5 +1,5 @@
 import './App.scss';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Redirect, Route, Switch} from 'react-router-dom';
 import {PostsPage} from './Pages/Posts';
 import {PostPage} from './Pages/Post';
 import {NoMatchPage} from './Pages/NoMatchPage';
@@ -11,6 +11,9 @@ function App() {
     return (
         <Router>
             <Switch>
+                <Route exact path="/">
+                    <Redirect to="/posts"/>
+                </Route>
                 <Route
                     path="/posts"
                     render={(props) => <PostsPage hello={HELLO} {...props}/>}

@@ -3,7 +3,9 @@ import {serverUrl} from './urls';
 
 const withRequest = (WrappedComponent) => {
     const sendRequest = async (api) => {
-        return fetch(serverUrl + api)
+        return fetch(serverUrl + api,{
+            mode: 'cors',
+        })
             .then(res => {
                 if (res.status === 200) {
                     return res.json();
@@ -14,7 +16,7 @@ const withRequest = (WrappedComponent) => {
                     return result;
                 },
                 (error) => {
-                   return error;
+                    return error;
                 },
             );
     };
