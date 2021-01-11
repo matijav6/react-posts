@@ -2,4 +2,4 @@
 
 #### To run app, just install modules (yarn install) and run it (yarn start)
 
-#### Approximate time spent: 10h  
+#### Approximate time spent: 16h  
