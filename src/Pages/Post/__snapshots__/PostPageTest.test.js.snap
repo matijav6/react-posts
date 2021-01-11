@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Post page renders correctly 1`] = `
+Array [
+  <nav
+    className="navbar navbar-dark bg-primary d-flex justify-content-center min-height-50"
+  />,
+  <div
+    className="container-fluid p-3"
+  >
+    <div
+      className="row justify-content-md-center"
+    >
+      <div
+        className="col-sm-8 mb-4 d-flex justify-content-center"
+      >
+        <div
+          className="w-100"
+        >
+          <div
+            className="sc-bdfBwQ fUVpNk card h-auto mw-100"
+          >
+            <div
+              className="sc-gsTCUz fjdwEL card__body"
+            >
+              <h1
+                className="sc-dlfnbm kGyIFc card__title"
+              >
+                
+              </h1>
+              <p
+                className="sc-hKgILt domCRS card__text"
+              >
+                
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="back-button alert-primary"
+    onClick={[Function]}
+  >
+    <h5>
+      &lt;-
+    </h5>
+  </div>,
+]
+`;

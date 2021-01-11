@@ -6,8 +6,7 @@ import {NoMatchPage} from './Pages/NoMatchPage';
 
 const HELLO = 'Hello from';
 
-function App() {
-
+let App = () => {
     return (
         <Router>
             <Switch>
@@ -28,6 +27,5 @@ function App() {
             </Switch>
         </Router>
     );
-}
-
+};
 export default App;

@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Back button renders correctly 1`] = `
+<div
+  className="back-button alert-primary"
+  onClick={[Function]}
+>
+  <h5>
+    &lt;-
+  </h5>
+</div>
+`;

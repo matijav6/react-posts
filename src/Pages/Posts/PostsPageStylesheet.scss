@@ -1,0 +1,8 @@
+.pointer {
+  cursor: pointer;
+}
+
+.pointer:hover {
+  background-color: #8dc5ff;
+  transition: background-color .5s ease-out;
+}

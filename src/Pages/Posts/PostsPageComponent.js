@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {Post} from '../../components/Post/Post';
 import {CustomSpinner} from '../../components/Spinner/Spinner';
 import {useHistory} from 'react-router-dom';
+import './PostsPageStylesheet.scss';
 
 export const PostsPageComponent = ({postsData, handleFilter, isLoading}) => {
     const history = useHistory();
@@ -19,22 +20,23 @@ export const PostsPageComponent = ({postsData, handleFilter, isLoading}) => {
                 <div className={'row justify-content-md-center'}>
                     {
                         postsData.filtered.map(post => (
-                            <div className={'col-sm-12 col-md-6 col-xl-3 mb-4 d-flex justify-content-center'} key={post.id}>
-                                <Post classes="mr">
+                            <div
+                                className={'col-sm-12 col-md-6 col-xl-3 mb-4 d-flex justify-content-center'}
+                                key={post.id}
+                            >
+                                <Post
+                                    classes="mr pointer"
+                                    onClick={() => {
+                                        history.push({
+                                            pathname: '/post/' + post.id,
+                                            state: {post: post},
+                                        });
+                                    }}
+                                >
                                     <Post.Body>
                                         <Post.Title>{post.title}</Post.Title>
                                         <Post.User>{post.user.username}</Post.User>
                                         <Post.Text>{post.body}</Post.Text>
-                                        <Post.ViewPostButton
-                                            onClick={() => {
-                                                history.push({
-                                                    pathname: '/post/' + post.id,
-                                                    state: {post: post},
-                                                });
-                                            }}
-                                        >
-                                            View post
-                                        </Post.ViewPostButton>
                                         <Post.TotalComments>
                                             {post.comments.length} comment(s)
                                         </Post.TotalComments>

@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Post renders correctly 1`] = `
+Array [
+  <nav
+    className="navbar navbar-dark bg-primary d-flex justify-content-center min-height-50"
+  >
+    <form
+      className="form-inline w-75"
+    >
+      <input
+        className="form-control mr-sm-2 w-100"
+        onChange={[Function]}
+        placeholder="Search"
+        type="text"
+      />
+    </form>
+  </nav>,
+  <div
+    className="container-fluid p-3"
+  >
+    <div
+      className="row justify-content-md-center"
+    />
+  </div>,
+]
+`;

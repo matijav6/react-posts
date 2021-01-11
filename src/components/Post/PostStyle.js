@@ -46,40 +46,6 @@ export const TotalComments = styled.p`
   padding: 0 10px;
 `;
 
-export const ViewPost = styled.button`
-  cursor: pointer;
-  color: #fff;
-  background-color: #007cfb;
-  border-color: #007cfb;
-  display: block;
-  font-weight: 200;
-  text-align: center;
-  vertical-align: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  border: 1px solid transparent;
-  border-radius: 0.25rem;
-  -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  position: absolute;
-  right: 5px;
-  top: 5px;
-  max-width: 30%;
-
-  &:hover {
-    color: #fff;
-    background-color: #95c8ff;
-    border-color: #95c8ff;
-  }
-
-  &:focus, &:active {
-    border: transparent;
-    outline: transparent;
-  }
-`;
-
 export const User = styled.p`
   color: #565656;
 `;

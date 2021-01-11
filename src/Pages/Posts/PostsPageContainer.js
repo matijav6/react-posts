@@ -20,22 +20,35 @@ const PostsPageContainer = ({hello, sendRequest}) => {
         return await sendRequest(getPostComments + '?postId=' + encodeURIComponent(post.id));
     };
 
+    const getUsersFromServer = async () => {
+        return await sendRequest(getUsers);
+    };
+
     const getPostsFromServer = async () => {
-        setIsLoading(true);
-        let posts = await sendRequest(getPosts);
-        let users = await sendRequest(getUsers);
-        return await Promise.all(posts.map(async post => {
-            post.user = users.find(user => user.id === post.userId);
-            post.comments = [];
-            post.comments = await getComments(post);
-            return post;
-        }));
+        return await sendRequest(getPosts);
     };
 
     useEffect(() => {
         console.log(`${hello} ${COMPONENT_NAME}`);
-        getPostsFromServer().then(r => {
-            setPostsData({filtered: r, allPosts: r});
+        setIsLoading(true);
+        getPostsFromServer().then(async posts => {
+            if (!Array.isArray(posts)) {
+                return false;
+            }
+
+            let users = await getUsersFromServer();
+            if (!Array.isArray(users)) {
+                return false;
+            }
+
+            posts = await Promise.all(posts.map(async post => {
+                post.user = users.find(user => user.id === post.userId);
+                post.comments = [];
+                post.comments = await getComments(post);
+                return post;
+            }));
+
+            setPostsData({filtered: posts, allPosts: posts});
             setIsLoading(false);
         });
         //eslint-disable-next-line
